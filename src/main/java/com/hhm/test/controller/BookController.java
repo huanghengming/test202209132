@@ -107,4 +107,7 @@ public class BookController {
         System.out.println("master");
     }
 
+    public void test02(){
+        System.out.println("hot-fix");
+    }
 }
