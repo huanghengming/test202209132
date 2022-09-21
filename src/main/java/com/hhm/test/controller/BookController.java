@@ -52,6 +52,7 @@ public class BookController {
 
     @RequestMapping(value = "/book/{id}")
     public ReturnJson deleteBook(@PathVariable("id") Integer id) {
+        System.out.println("最终版");
         ReturnJson returnJson = new ReturnJson();
         int i = bookService.deleteBookBuyId(id);
         if (i == 1) {
