@@ -103,4 +103,7 @@ public class BookController {
         return bookService.getBookById(id);
     }
 
+    public void test02(){
+        System.out.println("hot-fix");
+    }
 }
