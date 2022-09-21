@@ -62,12 +62,8 @@ public class BookController {
         return returnJson;
     }
 
-//    @RequestMapping(value = "/book", method = RequestMethod.POST)
-    @PostMapping("/book")
+    @RequestMapping(value = "/book", method = RequestMethod.POST)
     public ReturnJson insertBook(@RequestBody Book book) {
-//        new Book(book)
-//        String filename = photo.getOriginalFilename();
-//        System.out.println(filename);
         int i = bookService.insertBook(book);
         ReturnJson returnJson = new ReturnJson();
         if (i == 1) {
