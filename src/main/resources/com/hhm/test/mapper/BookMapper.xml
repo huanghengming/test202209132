@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhm.test.mapper.BookMapper">
+
+<!--List<Book> getAllBook();-->
+    <resultMap id="allBook" type="book">
+        <id property="bookId" column="book_id"></id>
+        <result column="book_name" property="bookName"></result>
+        <result column="isbn" property="isbn"></result>
+        <result column="author" property="author"></result>
+        <result column="press" property="press"></result>
+        <result column="price" property="price"></result>
+        <result column="volume" property="volume"></result>
+        <result column="cover_image" property="coverImage"></result>
+        <result column="allow_volume" property="allowVolume"></result>
+        <result column="effective" property="effective"></result>
+        <association property="bookTypeId" javaType="BookType">
+            <id column="book_type_id" property="bookTypeId"></id>
+            <result column="book_type" property="bookType"></result>
+        </association>
+    </resultMap>
+    <select id="getAllBook" resultMap="allBook">
+        select * from s_book
+    </select>
+<!--    BookType getBookType(Integer id);-->
+    <select id="getBookType" resultType="BookType">
+        select * from s_book_type where book_type_id = #{id}
+    </select>
+<!--    void deleteBookBuyId(@Param("id") Integer id);-->
+    <delete id="deleteBookBuyId">
+        delete from s_book where book_id = #{id}
+    </delete>
+<!--    int insertBook(Book book);-->
+    <insert id="insertBook">
+        insert into s_book values (#{book.bookId},#{book.bookTypeId.bookTypeId},#{book.bookName},#{book.isbn},#{book.author},#{book.press},#{book.price},#{book.volume},#{book.coverImage},#{book.allowVolume},#{book.effective})
+    </insert>
+<!--    List<BookType> getALlBookType();-->
+    <select id="getALlBookType" resultType="BookType">
+        select * from s_book_type
+    </select>
+<!--    Book getBookById(Integer id);-->
+    <select id="getBookById" resultType="book">
+        select * from s_book where book_id = #{id}
+    </select>
+</mapper>
