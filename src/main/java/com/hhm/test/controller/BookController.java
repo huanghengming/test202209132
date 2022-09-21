@@ -105,6 +105,7 @@ public class BookController {
 
     public void test01(){
         System.out.println("master");
+        System.out.println("免密登录");
     }
 
     public void test02(){
