@@ -103,4 +103,8 @@ public class BookController {
         return bookService.getBookById(id);
     }
 
+    public void test01(){
+        System.out.println("master");
+    }
+
 }
